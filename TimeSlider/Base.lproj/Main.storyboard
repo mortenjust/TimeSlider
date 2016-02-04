@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TimeSlider" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,33 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gD-wT-K0P">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NCQ-RN-6N5">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NCQ-RN-6N5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="24d-XJ-dGO"/>
+                            <constraint firstAttribute="trailing" secondItem="NCQ-RN-6N5" secondAttribute="trailing" id="QiU-V8-tVr"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8gD-wT-K0P" secondAttribute="bottom" id="UzC-x2-diE"/>
+                            <constraint firstItem="8gD-wT-K0P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bON-7x-fLa"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NCQ-RN-6N5" secondAttribute="bottom" id="dmV-NE-dnZ"/>
+                            <constraint firstItem="8gD-wT-K0P" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vtn-4w-Dmq"/>
+                            <constraint firstAttribute="trailing" secondItem="8gD-wT-K0P" secondAttribute="trailing" id="xpT-45-5CR"/>
+                            <constraint firstItem="NCQ-RN-6N5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zfM-Nm-dkz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stack" destination="NCQ-RN-6N5" id="7K2-FH-MFE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-129" y="642"/>
         </scene>
     </scenes>
 </document>

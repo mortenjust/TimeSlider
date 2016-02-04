@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8B1E1F41C425F000068D4A7 /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B1E1F31C425F000068D4A7 /* TimeCell.swift */; };
+		C8B1E1F61C42DED30068D4A7 /* ZoneTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B1E1F51C42DED30068D4A7 /* ZoneTable.swift */; };
 		C8B4441B1C42569200C039E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B4441A1C42569200C039E6 /* AppDelegate.swift */; };
 		C8B4441D1C42569200C039E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B4441C1C42569200C039E6 /* ViewController.swift */; };
 		C8B444201C42569200C039E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8B4441E1C42569200C039E6 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8B1E1F31C425F000068D4A7 /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
+		C8B1E1F51C42DED30068D4A7 /* ZoneTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoneTable.swift; sourceTree = "<group>"; };
 		C8B444171C42569200C039E6 /* TimeSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8B4441A1C42569200C039E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8B4441C1C42569200C039E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +26,7 @@
 		C8B444211C42569200C039E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8B444241C42569200C039E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8B444261C42569200C039E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8B4442C1C42569E00C039E6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = TimeSlider/MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 		C8B4440E1C42569200C039E6 = {
 			isa = PBXGroup;
 			children = (
+				C8B4442C1C42569E00C039E6 /* MyPlayground.playground */,
 				C8B444191C42569200C039E6 /* TimeSlider */,
 				C8B444181C42569200C039E6 /* Products */,
 			);
@@ -54,8 +60,10 @@
 		C8B444191C42569200C039E6 /* TimeSlider */ = {
 			isa = PBXGroup;
 			children = (
+				C8B1E1F51C42DED30068D4A7 /* ZoneTable.swift */,
 				C8B4441A1C42569200C039E6 /* AppDelegate.swift */,
 				C8B4441C1C42569200C039E6 /* ViewController.swift */,
+				C8B1E1F31C425F000068D4A7 /* TimeCell.swift */,
 				C8B4441E1C42569200C039E6 /* Main.storyboard */,
 				C8B444211C42569200C039E6 /* Assets.xcassets */,
 				C8B444231C42569200C039E6 /* LaunchScreen.storyboard */,
@@ -135,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8B1E1F41C425F000068D4A7 /* TimeCell.swift in Sources */,
 				C8B4441D1C42569200C039E6 /* ViewController.swift in Sources */,
+				C8B1E1F61C42DED30068D4A7 /* ZoneTable.swift in Sources */,
 				C8B4441B1C42569200C039E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +296,7 @@
 				C8B4442B1C42569200C039E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
