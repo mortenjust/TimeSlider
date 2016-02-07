@@ -26,47 +26,91 @@ class ZoneTable: UITableView, UITableViewDataSource, UITableViewDelegate {
         super.init(coder: aDecoder)
     }
     
-    
-    func setupForIdentifier(identifier:String){
+    func setupForTimeZone(timeZone:NSTimeZone){
+        self.timeZone = timeZone
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
         self.separatorStyle = .None
-        print("zonetable setup")
-        self.reuseIdentifier = identifier
+        self.reuseIdentifier = "zone\(timeZone.secondsFromGMT)"
         self.delegate = self
-        self.dataSource = self        
+        self.dataSource = self
+        self.allowsSelection = false
+        bounces = true
         self.registerClass(TimeCell.self, forCellReuseIdentifier: reuseIdentifier)
-        scrollToHour(currentHour())
+        scrollToHour(getGMTHour()) // todo: Find gmt hour
+        self.backgroundColor = UIColor.blackColor()
     }
-    
+
     func scrollToHour(hour:Int){
-        // 20 is the local time
-        let ip = NSIndexPath(forItem: currentHour(), inSection: 0)
-        self.scrollToRowAtIndexPath(ip, atScrollPosition: .Middle, animated: false)
+        let ip = NSIndexPath(forItem: hour + 12 + (10*24), inSection: 0) // WHY + 12?!
+        self.scrollToRowAtIndexPath(ip, atScrollPosition: .Middle, animated: true)
+        self.contentOffset.y += 17.0
     }
     
-    func currentHour() -> Int {
-        // use timeZone to calculate this
-        return 20
+    func getGMTHour() -> Int {
+        let gmt = NSTimeZone(abbreviation: "GMT")
+        let df = NSDateFormatter()
+        df.timeZone = gmt
+        df.dateFormat = "H"
+        return Int(df.stringFromDate(NSDate()))!
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         zoneTableDelegate?.zoneTableDidScrollToPosition(self.contentOffset.y)
     }
     
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return timeZone.name
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRectMake(0, 110, bounds.size.width, 30))
+        headerView.backgroundColor = UIColor.clearColor()
+        
+        let f = CGRectMake(0, 0, bounds.size.width, 30)
+        let label = UILabel(frame: f)
+        label.textAlignment = .Center
+        label.textColor = UIColor.whiteColor()
+        label.font = UIFont(name: "HelveticaNeue", size: 10.0)
+        
+        let zoneName =  timeZone.name
+                                .componentsSeparatedByString("/")[1]
+                                .stringByReplacingOccurrencesOfString("_", withString: " ")
+        
+        label.text = String(zoneName)
+        label.center.y = center.y
+        headerView.addSubview(label)
+        return headerView
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 30
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = self.dequeueReusableCellWithIdentifier(reuseIdentifier) as! TimeCell
-        let currentHour = indexPath.row % 24
-        cell.hourLabel.text = "\(currentHour)"
-        print("returning a cell for hour \(currentHour)")
+        
+        let currentHourGMT = indexPath.row
+        let localTimeInZone = (currentHourGMT + (timeZone.secondsFromGMT / 3600)) % 24
+        cell.hourLabel.text = "\(localTimeInZone)"
+        cell.hourLabel.textColor = UIColor.whiteColor()
+        cell.hourLabel.alpha = 0.4
+        let brightness:CGFloat = brightnessForHour(localTimeInZone)
+        cell.backgroundColor = UIColor(hue:0.59, saturation:0.750, brightness:brightness, alpha:1)
+        cell.setWidthAndCenter(bounds.width)
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("zonetable nubmbers of rosws")
+
         return 400 // TODO:Return something crazy fucking high
     }
     
+    
+    func  brightnessForHour(hour:Int) -> CGFloat {
+        let brightest:CGFloat = 12
+        return (brightest - abs(CGFloat(hour) - 12)) / 10
+    }
     
    
 }

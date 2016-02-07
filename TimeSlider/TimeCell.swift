@@ -10,35 +10,52 @@ import UIKit
 
 class TimeCell: UITableViewCell {
     var hourLabel : UILabel!
+    var width : CGFloat?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("cell awake from nib")
         // Initialization code
         setup()
     }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        print("cell:init 1")
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
 
     required init?(coder aDecoder: NSCoder) {
-        print("cell init 2")
+
         super.init(coder: aDecoder)
         setup()
     }
     
     override func prepareForReuse() {
-        print("cell:preparing for reuse")
+
+    }
+    
+    func setWidthAndCenter(width:CGFloat){ // due to some issue with stackview, it seems
+        print("set witdth and center \(width)")
+                frame.size.width = width
+        hourLabel.frame.size.width = width
+        hourLabel.center.x = center.x
+
+        print("now set. frame width: \(hourLabel.frame.size.width) cell width: \(bounds.width)")
     }
     
     func setup(){
-        print("cell:setup()")
-        let rect = CGRectMake(0, 0, 20, 20)
+        
+        // todo: Maybe have a addLabel that the adapter can call after it checked that hourlabel was false?
+        
+        print("dump bounds \(frame)")
+        let rect = CGRectMake(0, 0, 100, 30)
         hourLabel = UILabel(frame: rect)
         hourLabel.text = "%HH%"
+        hourLabel.adjustsFontSizeToFitWidth = true
+        hourLabel.textAlignment = .Center
+        hourLabel.center.y = center.y
+        hourLabel.font = UIFont(name: "HelveticaNeue", size: 10.0)
+
         self.addSubview(hourLabel)
     }
 

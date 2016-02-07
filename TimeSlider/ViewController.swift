@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, ZoneTableDelegate {
+    
+    
 
     @IBOutlet weak var stack: UIStackView!
     var col:CGFloat = 0
@@ -19,17 +21,14 @@ class ViewController: UIViewController, ZoneTableDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.blackColor()
+        
+        zones.append(NSTimeZone(name: NSTimeZone.systemTimeZone().name)!)
+        zones.append(NSTimeZone(name: "America/New_York")!)
+        zones.append(NSTimeZone(name: "Europe/London")!)
+        zones.append(NSTimeZone(name: "Europe/Copenhagen")!)
 
         
-        // to make them deal with stack view in an appropriate manner:
-        // http://stackoverflow.com/questions/30728062/add-views-in-uistackview-programmatically
-     
-        zones.append(NSTimeZone(forSecondsFromGMT: 1000))
-        zones.append(NSTimeZone(forSecondsFromGMT: 1000))
-        zones.append(NSTimeZone(forSecondsFromGMT: 1000))
-        zones.append(NSTimeZone(forSecondsFromGMT: 1000))
-        zones.append(NSTimeZone(forSecondsFromGMT: 1000))
-
 
         for zone in zones {
             let t = addTableForTimeZone(zone)
@@ -50,7 +49,7 @@ class ViewController: UIViewController, ZoneTableDelegate {
 
     func addTableForTimeZone(timeZone:NSTimeZone) -> ZoneTable {
         let new = ZoneTable()
-        new.setupForIdentifier("zone\(timeZone)")
+        new.setupForTimeZone(timeZone)
         stack.addArrangedSubview(new)
         return new
     }
@@ -62,6 +61,17 @@ class ViewController: UIViewController, ZoneTableDelegate {
     }
     
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return UIStatusBarAnimation.Slide
+    }
 
 }
 
