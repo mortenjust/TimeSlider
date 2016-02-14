@@ -35,27 +35,25 @@ class TimeCell: UITableViewCell {
     }
     
     func setWidthAndCenter(width:CGFloat){ // due to some issue with stackview, it seems
-        print("set witdth and center \(width)")
-                frame.size.width = width
+        frame.size.width = width
         hourLabel.frame.size.width = width
         hourLabel.center.x = center.x
 
-        print("now set. frame width: \(hourLabel.frame.size.width) cell width: \(bounds.width)")
+
     }
     
     func setup(){
-        
         // todo: Maybe have a addLabel that the adapter can call after it checked that hourlabel was false?
-        
-        print("dump bounds \(frame)")
         let rect = CGRectMake(0, 0, 100, 30)
         hourLabel = UILabel(frame: rect)
         hourLabel.text = "%HH%"
+        hourLabel.textColor = UIColor.whiteColor()
+        hourLabel.alpha = 0.6
         hourLabel.adjustsFontSizeToFitWidth = true
         hourLabel.textAlignment = .Center
-        hourLabel.center.y = center.y
-        hourLabel.font = UIFont(name: "HelveticaNeue", size: 10.0)
 
+
+        hourLabel.font = UIFont(name: "HelveticaNeue", size: 14.0)
         self.addSubview(hourLabel)
     }
 

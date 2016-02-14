@@ -14,9 +14,13 @@
 		C8B444201C42569200C039E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8B4441E1C42569200C039E6 /* Main.storyboard */; };
 		C8B444221C42569200C039E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8B444211C42569200C039E6 /* Assets.xcassets */; };
 		C8B444251C42569200C039E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8B444231C42569200C039E6 /* LaunchScreen.storyboard */; };
+		C8F4CFAE1C6F05A200FDD14D /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F4CFAD1C6F05A200FDD14D /* C.swift */; };
+		C8F4CFB01C6F139400FDD14D /* TimeZoneViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F4CFAF1C6F139400FDD14D /* TimeZoneViewControllerTableViewController.swift */; };
+		C8F4CFB21C70565C00FDD14D /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F4CFB11C70565C00FDD14D /* TimeZone.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8721CB21C6DAAB5007601CC /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		C8B1E1F31C425F000068D4A7 /* TimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		C8B1E1F51C42DED30068D4A7 /* ZoneTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoneTable.swift; sourceTree = "<group>"; };
 		C8B444171C42569200C039E6 /* TimeSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +31,9 @@
 		C8B444241C42569200C039E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8B444261C42569200C039E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8B4442C1C42569E00C039E6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = TimeSlider/MyPlayground.playground; sourceTree = "<group>"; };
+		C8F4CFAD1C6F05A200FDD14D /* C.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = C.swift; path = TimeSlider/C.swift; sourceTree = "<group>"; };
+		C8F4CFAF1C6F139400FDD14D /* TimeZoneViewControllerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZoneViewControllerTableViewController.swift; path = TimeSlider/TimeZoneViewControllerTableViewController.swift; sourceTree = "<group>"; };
+		C8F4CFB11C70565C00FDD14D /* TimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZone.swift; path = TimeSlider/TimeZone.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,10 @@
 		C8B4440E1C42569200C039E6 = {
 			isa = PBXGroup;
 			children = (
+				C8F4CFB11C70565C00FDD14D /* TimeZone.swift */,
+				C8F4CFAF1C6F139400FDD14D /* TimeZoneViewControllerTableViewController.swift */,
+				C8F4CFAD1C6F05A200FDD14D /* C.swift */,
+				C8721CB21C6DAAB5007601CC /* MyPlayground.playground */,
 				C8B4442C1C42569E00C039E6 /* MyPlayground.playground */,
 				C8B444191C42569200C039E6 /* TimeSlider */,
 				C8B444181C42569200C039E6 /* Products */,
@@ -144,8 +155,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8B1E1F41C425F000068D4A7 /* TimeCell.swift in Sources */,
+				C8F4CFB01C6F139400FDD14D /* TimeZoneViewControllerTableViewController.swift in Sources */,
 				C8B4441D1C42569200C039E6 /* ViewController.swift in Sources */,
+				C8F4CFB21C70565C00FDD14D /* TimeZone.swift in Sources */,
 				C8B1E1F61C42DED30068D4A7 /* ZoneTable.swift in Sources */,
+				C8F4CFAE1C6F05A200FDD14D /* C.swift in Sources */,
 				C8B4441B1C42569200C039E6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
